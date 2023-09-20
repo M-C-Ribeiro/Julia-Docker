@@ -1,0 +1,11 @@
+version: "3"
+services:
+  server:
+    image: python
+    volumes:
+      - ./:/src
+    ports:
+      - "8000:8000"
+    working_dir: /src
+    command: bash -c "pip3 install fastapi "uvicorn[standard]" && uvicorn main:app --host 0.0.0.0 --reload"
+  
